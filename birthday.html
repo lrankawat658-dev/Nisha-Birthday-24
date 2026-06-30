@@ -3,57 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Nisha</title>
+    <title>Happy Birthday Nisha 🎂</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%, #f093fb 100%);
+            font-family: 'Arial', sans-serif;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientBg 15s ease infinite;
+            z-index: -1;
+        }
+
+        @keyframes gradientBg {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating Hearts */
+        .heart-float {
+            position: fixed;
+            font-size: 2em;
+            opacity: 0.7;
+            animation: float-hearts 6s infinite ease-in;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes float-hearts {
+            0% {
+                transform: translateY(0px) rotateZ(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotateZ(360deg);
+                opacity: 0;
+            }
         }
 
         .main {
             width: 100%;
-            max-width: 700px;
-            background: white;
-            border-radius: 25px;
-            padding: 30px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 750px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 35px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.4);
             text-align: center;
+            position: relative;
+            z-index: 10;
+            animation: slideIn 0.8s ease-out;
+            border: 3px solid rgba(255, 107, 107, 0.3);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         h1 {
-            color: #ff6b6b;
-            font-size: 2.5em;
+            background: linear-gradient(135deg, #ff6b6b, #ff758f, #ffa8b3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 3em;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            text-shadow: 0 0 30px rgba(255, 107, 107, 0.3);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         .subtitle {
             color: #ff758f;
-            font-size: 1.5em;
+            font-size: 1.8em;
             margin-bottom: 30px;
+            animation: glow 2s ease-in-out infinite;
         }
 
-        /* Slideshow - Fixed for different image sizes */
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 10px rgba(255, 107, 107, 0.5); }
+            50% { text-shadow: 0 0 20px rgba(255, 107, 107, 0.8); }
+        }
+
+        /* Slideshow */
         .photos {
             position: relative;
             width: 100%;
-            background: #000;
+            background: linear-gradient(135deg, #000, #333);
             border-radius: 20px;
             overflow: hidden;
             margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 350px;
             max-height: 550px;
+            border: 3px solid #ff6b6b;
         }
 
         .photos img {
@@ -64,23 +138,33 @@
             height: auto;
             object-fit: contain;
             opacity: 0;
-            transition: opacity 1s ease-in-out;
+            animation: imgFadeInOut 6s infinite;
         }
 
-        .photos img.show {
-            opacity: 1;
+        @keyframes imgFadeInOut {
+            0%, 5%, 95%, 100% { opacity: 0; }
+            15%, 85% { opacity: 1; }
         }
+
+        .photos img:nth-child(1) { animation-delay: 0s; }
+        .photos img:nth-child(2) { animation-delay: 1s; }
+        .photos img:nth-child(3) { animation-delay: 2s; }
+        .photos img:nth-child(4) { animation-delay: 3s; }
+        .photos img:nth-child(5) { animation-delay: 4s; }
+        .photos img:nth-child(6) { animation-delay: 5s; }
 
         .photo-counter {
             position: absolute;
             bottom: 15px;
             right: 15px;
-            background: rgba(0,0,0,0.7);
+            background: rgba(255, 107, 107, 0.9);
             color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9em;
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: bold;
             z-index: 10;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
         }
 
         /* Navigation buttons */
@@ -88,88 +172,139 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(255,255,255,0.7);
-            color: #667eea;
-            border: none;
-            font-size: 1.5em;
-            padding: 10px 15px;
+            background: rgba(255, 255, 255, 0.85);
+            color: #ff6b6b;
+            border: 2px solid #ff6b6b;
+            font-size: 1.8em;
+            padding: 12px 16px;
             cursor: pointer;
-            border-radius: 5px;
+            border-radius: 50%;
             z-index: 20;
-            transition: 0.3s;
+            transition: all 0.3s ease;
+            font-weight: bold;
         }
 
         .nav-btn:hover {
-            background: rgba(255,255,255,0.9);
+            background: #ff6b6b;
+            color: white;
+            transform: translateY(-50%) scale(1.2);
+            box-shadow: 0 0 20px rgba(255, 107, 107, 0.6);
         }
 
-        .prev {
-            left: 10px;
-        }
-
-        .next {
-            right: 10px;
-        }
+        .prev { left: 15px; }
+        .next { right: 15px; }
 
         /* Letter */
         .letter {
-            background: linear-gradient(135deg, #fff5e1 0%, #fff9e6 100%);
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            border-left: 5px solid #ff6b6b;
+            background: linear-gradient(135deg, #fff5e1 0%, #ffe4cc 100%);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            border-left: 6px solid #ff6b6b;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.2);
+            animation: letterFloat 3s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes letterFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .letter::before {
+            content: '💌';
+            position: absolute;
+            font-size: 5em;
+            opacity: 0.1;
+            top: -20px;
+            right: -20px;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotateZ(0deg); }
+            100% { transform: rotateZ(360deg); }
         }
 
         .letter h2 {
             color: #ff6b6b;
-            font-size: 1.5em;
-            margin-bottom: 15px;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(255, 107, 107, 0.2);
         }
 
         .letter p {
             color: #555;
-            line-height: 1.8;
-            font-size: 1.05em;
-            margin: 10px 0;
+            line-height: 2;
+            font-size: 1.1em;
+            margin: 12px 0;
+            font-weight: 500;
         }
 
         /* Music */
         .music {
-            background: #f5f5f5;
-            padding: 20px;
-            border-radius: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 25px;
+            border-radius: 20px;
             margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
         }
 
         .music h3 {
-            color: #ff6b6b;
+            color: white;
             margin-bottom: 15px;
-            font-size: 1.3em;
+            font-size: 1.4em;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
         .music audio {
             width: 100%;
-            border-radius: 10px;
+            border-radius: 15px;
             background: white;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         .note {
-            background: #d4edda;
-            color: #155724;
+            background: rgba(255, 255, 255, 0.9);
+            color: #667eea;
             padding: 12px;
-            border-radius: 10px;
-            border: 1px solid #c3e6cb;
-            font-size: 0.9em;
+            border-radius: 15px;
             margin-top: 15px;
+            border: 2px solid #667eea;
+            font-size: 0.95em;
+            font-weight: bold;
+        }
+
+        /* Confetti */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes confetti-fall {
+            to {
+                transform: translateY(100vh) rotateZ(720deg);
+                opacity: 0;
+            }
         }
 
         @media (max-width: 600px) {
-            h1 { font-size: 1.8em; }
-            .subtitle { font-size: 1.2em; }
+            h1 { font-size: 2.2em; }
+            .subtitle { font-size: 1.4em; }
             .photos { min-height: 280px; }
             .main { padding: 20px; }
-            .nav-btn { font-size: 1.2em; padding: 8px 12px; }
+            .nav-btn { font-size: 1.4em; padding: 10px 13px; }
+            .letter { padding: 20px; }
         }
     </style>
 </head>
@@ -180,7 +315,7 @@
 
         <!-- Photos Slideshow -->
         <div class="photos">
-            <img src="photo1.jpg.jpg" class="show" alt="Photo 1">
+            <img src="photo1.jpg.jpg" alt="Photo 1">
             <img src="photo2.jpg.jpg" alt="Photo 2">
             <img src="photo3.jpg.jpg" alt="Photo 3">
             <img src="photo4.jpg.jpg" alt="Photo 4">
@@ -191,7 +326,7 @@
             <button class="nav-btn next" onclick="nextPhoto()">❯</button>
             
             <div class="photo-counter">
-                <span id="current">1</span> / <span id="total">6</span>
+                <span id="current">1</span> / 6
             </div>
         </div>
 
@@ -203,15 +338,14 @@
             <p>Main har janam mein sirf tumhe hi apni wife ke roop mein paana chahta hoon.</p>
             <p>Thank you for making my life beautiful.</p>
             <p>I Love You Forever ❤️</p>
-            <p style="margin-top: 20px; font-weight: bold;">— Tumhara Husband<br>Lalit</p>
+            <p style="margin-top: 25px; font-weight: bold; font-size: 1.15em;">— Tumhara Husband<br>Lalit 💕</p>
         </div>
 
         <!-- Music -->
         <div class="music">
             <h3>🎵 Special Birthday Message</h3>
-            <audio controls autoplay>
+            <audio controls autoplay style="display: none;">
                 <source src="https://audio.com/abhishek-paul-abhi/audio/khat" type="audio/mpeg">
-                Your browser does not support the audio element.
             </audio>
             <div class="note">
                 ♫ Special message from Lalit for Nisha! 💕
@@ -220,35 +354,56 @@
     </div>
 
     <script>
-        const images = document.querySelectorAll('.photos img');
-        let current = 0;
-        let autoPlayTimer;
+        // Create floating hearts
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart-float');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            document.body.appendChild(heart);
+            
+            setTimeout(() => heart.remove(), 7000);
+        }
 
-        function showPhoto(index) {
-            images.forEach(img => img.classList.remove('show'));
-            images[index].classList.add('show');
-            document.getElementById('current').textContent = index + 1;
+        setInterval(createHeart, 300);
+
+        // Create confetti
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.top = '-10px';
+            confetti.style.background = ['#ff6b6b', '#ff758f', '#ffa8b3', '#667eea', '#764ba2'][Math.floor(Math.random() * 5)];
+            confetti.style.animation = `confetti-fall ${Math.random() * 3 + 2}s ease-in forwards`;
+            document.body.appendChild(confetti);
+            
+            setTimeout(() => confetti.remove(), 5000);
+        }
+
+        setInterval(createConfetti, 200);
+
+        // Slideshow logic
+        let currentSlide = 0;
+        const images = document.querySelectorAll('.photos img');
+        const totalSlides = images.length;
+
+        function updateCounter() {
+            document.getElementById('current').textContent = currentSlide + 1;
         }
 
         function nextPhoto() {
-            current = (current + 1) % images.length;
-            showPhoto(current);
-            resetAutoPlay();
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCounter();
         }
 
         function prevPhoto() {
-            current = (current - 1 + images.length) % images.length;
-            showPhoto(current);
-            resetAutoPlay();
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCounter();
         }
 
-        function resetAutoPlay() {
-            clearInterval(autoPlayTimer);
-            autoPlayTimer = setInterval(nextPhoto, 4000);
-        }
-
-        // Auto-play on page load
-        resetAutoPlay();
+        // Auto-advance slides
+        setInterval(nextPhoto, 6000);
     </script>
 </body>
 </html>
