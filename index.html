@@ -94,10 +94,12 @@
     </section>
 
     <section class="slideshow-container">
-        <img src="photo1.jpg" class="slide active">
-        <img src="photo2.jpg" class="slide">
-        <img src="photo3.jpg" class="slide">
-        <img src="photo4.jpg" class="slide">
+        <img src="photo1.jpg.jpg" class="slide active">
+        <img src="photo2.jpg.jpg" class="slide">
+        <img src="photo3.jpg.jpg" class="slide">
+        <img src="photo4.jpg.jpg" class="slide">
+        <img src="photo5.jpg.jpg" class="slide">
+        <img src="photo6.jpg.jpg" class="slide">
     </section>
 
     <section>
@@ -125,7 +127,7 @@
             // 1. Pehle chal rahi image se active class hatao
             slides[currentIndex].classList.remove('active');
             
-            // 2. Agli image par jao (aur agar 4th image khatam ho toh wapas 1st par aao)
+            // 2. Agli image par jao (aur agar last image khatam ho toh wapas 1st par aao)
             currentIndex = (currentIndex + 1) % slides.length;
             
             // 3. Agli image par active class lagao taaki wo dikhne lage
