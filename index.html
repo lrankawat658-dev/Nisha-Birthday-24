@@ -3,140 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Nisha ❤️</title>
+    <title>🎂 Happy Birthday Nisha ❤️</title>
     <style>
-        /* --- WEBSITE KA DESIGN (CSS) --- */
-        body {
-            background-color: #ffe6e6; /* Sweet Pinkish Background */
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-            color: #333;
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             padding: 20px;
         }
 
-        section {
-            margin: 30px auto;
-            max-width: 500px;
-            background: white;
-            padding: 25px;
-            border-radius: 20px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        .container {
+            width: 100%;
+            max-width: 600px;
         }
 
-        h1 { 
-            color: #ff4d6d; 
-            font-size: 2rem;
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .header h1 {
+            color: #ff6b6b;
+            font-size: 2.5em;
             margin-bottom: 10px;
         }
-        
-        h2 { 
-            color: #ff758f; 
-            margin-top: 0;
+
+        .header p {
+            color: #666;
+            font-size: 1.2em;
         }
 
-        /* --- SLIDESHOW KA DESIGN --- */
+        /* Slideshow Container */
+        .slideshow-wrapper {
+            position: relative;
+            width: 100%;
+            margin: 20px 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
         .slideshow-container {
             position: relative;
-            max-width: 100%;
-            height: 400px; /* Mobile aur desktop dono ke liye best height */
-            margin: 20px auto;
-            overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-            padding: 0; /* Images ke beech me space na rahe */
+            width: 100%;
+            max-width: 600px;
+            height: 500px;
+            background: #000;
         }
 
         .slide {
             display: none;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Image stretch nahi hogi, perfectly fit hogi */
-            /* Smooth Fade Animation */
-            animation: fadeEffect 1.5s ease-in-out;
+            object-fit: cover;
         }
 
-        /* Jo image dikhni chahiye */
         .slide.active {
             display: block;
+            animation: fadeIn 1s ease-in;
         }
 
-        /* Fade Animation Effect */
-        @keyframes fadeEffect {
-            from { opacity: 0.3; } 
+        @keyframes fadeIn {
+            from { opacity: 0; }
             to { opacity: 1; }
         }
 
-        /* --- LETTER AUR MUSIC KA DESIGN --- */
-        p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #4a4a4a;
-            font-weight: 500;
+        .slide-counter {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+
+        .letter {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .letter h2 {
+            color: #ff6b6b;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .letter p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        .music-section {
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            margin-top: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .music-section h3 {
+            color: #ff6b6b;
+            margin-bottom: 15px;
         }
 
         audio {
-            margin-top: 20px;
-            width: 90%;
+            width: 100%;
             max-width: 400px;
-            border-radius: 30px;
+            border-radius: 10px;
+        }
+
+        .no-music {
+            background: #fff3cd;
+            color: #856404;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 10px;
+            border: 1px solid #ffc107;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .slideshow-container {
+                height: 350px;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🎂 Happy Birthday 👑</h1>
+            <p>My Beautiful Queen - Nisha ❤️</p>
+            <p style="font-size: 0.9em; color: #999;">July 5, 2026</p>
+        </div>
 
-    <div></div>
+        <!-- Slideshow -->
+        <div class="slideshow-wrapper">
+            <div class="slideshow-container">
+                <img src="photo1.jpg.jpg" class="slide active" alt="Photo 1">
+                <img src="photo2.jpg.jpg" class="slide" alt="Photo 2">
+                <img src="photo3.jpg.jpg" class="slide" alt="Photo 3">
+                <img src="photo4.jpg.jpg" class="slide" alt="Photo 4">
+                <img src="photo5.jpg.jpg" class="slide" alt="Photo 5">
+                <img src="photo6.jpg.jpg" class="slide" alt="Photo 6">
+                <div class="slide-counter">
+                    <span id="current-slide">1</span> / <span id="total-slides">6</span>
+                </div>
+            </div>
+        </div>
 
-    <section>
-        <h1>🎂 Happy Birthday My Queen 👑</h1>
-        <h2>Nisha ❤️</h2>
-        <p>05 July 2026</p>
-    </section>
+        <!-- Love Letter -->
+        <div class="letter">
+            <h2>💌 Meri Jaan</h2>
+            <p>
+                Happy Birthday Nisha ❤️<br><br>
+                Tum meri zindagi ki sabse khoobsurat wajah ho.<br><br>
+                Main har janam mein sirf tumhe hi apni wife ke roop mein paana chahta hoon.<br><br>
+                Thank you for making my life beautiful with your smile.<br><br>
+                I Love You Forever ❤️<br><br>
+                — Tumhara Husband<br>
+                <strong>Lalit</strong>
+            </p>
+        </div>
 
-    <section class="slideshow-container">
-        <img src="photo1.jpg.jpg" class="slide active">
-        <img src="photo2.jpg.jpg" class="slide">
-        <img src="photo3.jpg.jpg" class="slide">
-        <img src="photo4.jpg.jpg" class="slide">
-        <img src="photo5.jpg.jpg" class="slide">
-        <img src="photo6.jpg.jpg" class="slide">
-    </section>
-
-    <section>
-        <h2>💌 My Letter</h2>
-        <p>
-            Happy Birthday Meri Jaan ❤️<br><br>
-            Tum meri zindagi ki sabse khoobsurat wajah ho.<br><br>
-            Main har janam mein sirf tumhe hi apni wife ke roop mein paana chahta hoon.<br><br>
-            Thank you for making my life beautiful.<br><br>
-            I Love You Forever ❤️<br><br>
-            — Tumhara Husband<br>
-            Lalit
-        </p>
-    </section>
-
-    <audio controls autoplay loop>
-        <source src="music.mp3" type="audio/mpeg">
-    </audio>
+        <!-- Music Section -->
+        <div class="music-section">
+            <h3>🎵 Birthday Song</h3>
+            <audio controls autoplay loop>
+                <source src="music.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <div class="no-music">
+                ⚠️ <strong>Music file (music.mp3) upload करनी होगी!</strong><br>
+                अपनी पसंद का birthday song या romantic music upload करो।
+            </div>
+        </div>
+    </div>
 
     <script>
-        let currentIndex = 0;
+        let currentSlideIndex = 0;
         const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
 
-        function showNextSlide() {
-            // 1. Pehle chal rahi image se active class hatao
-            slides[currentIndex].classList.remove('active');
+        function showSlide(n) {
+            // Remove active class from all slides
+            slides.forEach(slide => slide.classList.remove('active'));
             
-            // 2. Agli image par jao (aur agar last image khatam ho toh wapas 1st par aao)
-            currentIndex = (currentIndex + 1) % slides.length;
+            // Add active class to current slide
+            slides[n].classList.add('active');
             
-            // 3. Agli image par active class lagao taaki wo dikhne lage
-            slides[currentIndex].classList.add('active');
+            // Update counter
+            document.getElementById('current-slide').textContent = n + 1;
+            document.getElementById('total-slides').textContent = totalSlides;
         }
 
-        // Har 3 second (3000 milliseconds) me image automatic badlegi
-        setInterval(showNextSlide, 3000);
-    </script>
+        function nextSlide() {
+            currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
+            showSlide(currentSlideIndex);
+        }
 
+        // Auto advance slides every 4 seconds
+        setInterval(nextSlide, 4000);
+
+        // Initial display
+        showSlide(currentSlideIndex);
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight') {
+                nextSlide();
+            } else if (event.key === 'ArrowLeft') {
+                currentSlideIndex = (currentSlideIndex - 1 + totalSlides) % totalSlides;
+                showSlide(currentSlideIndex);
+            }
+        });
+    </script>
 </body>
 </html>
