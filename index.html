@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Nisha ❤️</title>
+    <style>
+        /* --- WEBSITE KA DESIGN (CSS) --- */
+        body {
+            background-color: #ffe6e6; /* Sweet Pinkish Background */
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        section {
+            margin: 30px auto;
+            max-width: 500px;
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+
+        h1 { 
+            color: #ff4d6d; 
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        h2 { 
+            color: #ff758f; 
+            margin-top: 0;
+        }
+
+        /* --- SLIDESHOW KA DESIGN --- */
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            height: 400px; /* Mobile aur desktop dono ke liye best height */
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            padding: 0; /* Images ke beech me space na rahe */
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Image stretch nahi hogi, perfectly fit hogi */
+            /* Smooth Fade Animation */
+            animation: fadeEffect 1.5s ease-in-out;
+        }
+
+        /* Jo image dikhni chahiye */
+        .slide.active {
+            display: block;
+        }
+
+        /* Fade Animation Effect */
+        @keyframes fadeEffect {
+            from { opacity: 0.3; } 
+            to { opacity: 1; }
+        }
+
+        /* --- LETTER AUR MUSIC KA DESIGN --- */
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #4a4a4a;
+            font-weight: 500;
+        }
+
+        audio {
+            margin-top: 20px;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <div></div>
+
+    <section>
+        <h1>🎂 Happy Birthday My Queen 👑</h1>
+        <h2>Nisha ❤️</h2>
+        <p>05 July 2026</p>
+    </section>
+
+    <section class="slideshow-container">
+        <img src="photo1.jpg" class="slide active">
+        <img src="photo2.jpg" class="slide">
+        <img src="photo3.jpg" class="slide">
+        <img src="photo4.jpg" class="slide">
+    </section>
+
+    <section>
+        <h2>💌 My Letter</h2>
+        <p>
+            Happy Birthday Meri Jaan ❤️<br><br>
+            Tum meri zindagi ki sabse khoobsurat wajah ho.<br><br>
+            Main har janam mein sirf tumhe hi apni wife ke roop mein paana chahta hoon.<br><br>
+            Thank you for making my life beautiful.<br><br>
+            I Love You Forever ❤️<br><br>
+            — Tumhara Husband<br>
+            Lalit
+        </p>
+    </section>
+
+    <audio controls autoplay loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showNextSlide() {
+            // 1. Pehle chal rahi image se active class hatao
+            slides[currentIndex].classList.remove('active');
+            
+            // 2. Agli image par jao (aur agar 4th image khatam ho toh wapas 1st par aao)
+            currentIndex = (currentIndex + 1) % slides.length;
+            
+            // 3. Agli image par active class lagao taaki wo dikhne lage
+            slides[currentIndex].classList.add('active');
+        }
+
+        // Har 3 second (3000 milliseconds) me image automatic badlegi
+        setInterval(showNextSlide, 3000);
+    </script>
+
+</body>
+</html>
